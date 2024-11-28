@@ -1,0 +1,11 @@
+.nyc_output
+coverage
+dist
+artifacts
+node_modules
+*.log
+*.tgz
+.jshintrc
+*.sh
+examples/*/build
+temp/

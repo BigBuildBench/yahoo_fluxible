@@ -1,0 +1,46 @@
+{
+  "name": "fluxible-router",
+  "version": "2.0.2",
+  "description": "Routing for Fluxible applications",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/es/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yahoo/fluxible.git"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "dist": "npm run clean && npm run dist:commonjs && npm run dist:es",
+    "dist:commonjs": "../../node_modules/.bin/babel --root-mode upward --env-name commonjs src -d dist/cjs",
+    "dist:es": "../../node_modules/.bin/babel --root-mode upward --env-name es src -d dist/es",
+    "precover": "npm run dist",
+    "prepublish": "npm run dist",
+    "pretest": "npm run dist",
+    "test": "../../node_modules/.bin/jest -c ../../jest.config.js",
+    "cover": "../../node_modules/.bin/jest -c ../../jest.config.js --coverage",
+    "lint": "../../node_modules/.bin/eslint **/*.js"
+  },
+  "author": "Lingyan Zhu <lingyan@yahoo-inc.com>",
+  "licenses": [
+    {
+      "type": "BSD",
+      "url": "https://github.com/yahoo/fluxible/blob/master/LICENSE.md"
+    }
+  ],
+  "peerDependencies": {
+    "fluxible": "^1.0.0",
+    "react": "^16.3.0 || ^17.0.0"
+  },
+  "keywords": [
+    "flux",
+    "fluxible",
+    "history",
+    "navigation",
+    "react",
+    "router"
+  ],
+  "pre-commit": [
+    "lint",
+    "test"
+  ]
+}
